@@ -32,55 +32,38 @@ def choice_to_str(num):
       
 
 # Handlers for mouse click
+
+def winner_message(choice1, choice2):  
+    #returns the appropriate message for the given winner
+    winner = find_winner(choice1, choice2)
+    if winner == 1:
+        message = "Computer chose " + choice_to_str(comp_choice) + ". You won."
+    elif winner == 2:
+        message = "Computer chose " + choice_to_str(comp_choice) + ". Computer wins!"
+    else:
+        message = "Computer chose " + choice_to_str(comp_choice) + ". Its a tie!" 
+    return message  
+
+def print_message(player_choice): 
+    global message
+    message = winner_message(player_choice, comp_choice) 
+
 def rock():
-    global message
-    winner = find_winner(0, comp_choice)
-    if winner == 1:
-        message = "Computer chose " + choice_to_str(comp_choice) + ". You won."
-    elif winner == 2:
-        message = "Computer chose " + choice_to_str(comp_choice) + ". Computer wins!"
-    else:
-        message = "Computer chose " + choice_to_str(comp_choice) + ". Its a tie!"              
-    
+    print_message(0)
+
 def paper():
-    global message
-    winner = find_winner(1, comp_choice)
-    if winner == 1:
-        message = "Computer chose " + choice_to_str(comp_choice) + ". You won."
-    elif winner == 2:
-        message = "Computer chose " + choice_to_str(comp_choice) + ". Computer wins!"
-    else:
-        message = "Computer chose " + choice_to_str(comp_choice) + ". Its a tie!"              
+    print_message(1)       
 
 def scissors():
-    global message
-    winner = find_winner(2, comp_choice)
-    if winner == 1:
-        message = "Computer chose " + choice_to_str(comp_choice) + ". You won."
-    elif winner == 2:
-        message = "Computer chose " + choice_to_str(comp_choice) + ". Computer wins!"
-    else:
-        message = "Computer chose " + choice_to_str(comp_choice) + ". Its a tie!"   
+    print_message(2)   
 
 def lizard():
-    global message
-    winner = find_winner(3, comp_choice)
-    if winner == 1:
-        message = "Computer chose " + choice_to_str(comp_choice) + ". You won."
-    elif winner == 2:
-        message = "Computer chose " + choice_to_str(comp_choice) + ". Computer wins!"
-    else:
-        message = "Computer chose " + choice_to_str(comp_choice) + ". Its a tie!"     
-        
+    print_message(3) 
+
 def Spock():
-    global message
-    winner = find_winner(4, comp_choice)
-    if winner == 1:
-        message = "Computer chose " + choice_to_str(comp_choice) + ". You won."
-    elif winner == 2:
-        message = "Computer chose " + choice_to_str(comp_choice) + ". Computer wins!"
-    else:
-        message = "Computer chose " + choice_to_str(comp_choice) + ". Its a tie!"              
+    print_message(4)  
+
+           
             
 # Handler to draw on canvas
 def draw(canvas):
