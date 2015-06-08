@@ -5,19 +5,21 @@ import random
 
 message = "Make your choice"
 comp_choice = random.randrange(5)
+
+
 def find_winner(player1, player2):
-    #finds a winnner using modular arithmetic
+#finds a winnner using modular arithmetic
     abs_diff = abs(player1 - player2) % 5
     if 0 < abs_diff < 3:
-        #higher number wins max(1, 2)
-        winner = max(player1, player2)
+    #higher number wins max(1, 2)
+    winner = max(player1, player2)
         if player1 == winner:
             winner = 1
         else:
-            winner = 2 
+            winner = 2
     elif abs_diff > 2:
-        #lower number wins
-        winner = min(player1, player2)
+    #lower number wins
+    winner = min(player1, player2)
         if player1 == winner:
             winner = 1
         else:
