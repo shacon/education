@@ -37,7 +37,7 @@ def rpsls(player_choice):
     # print out the message for computer's choice
     print "Computer chooses " + comp_choice
     # compute difference of comp_number and player_number modulo five
-    abs_diff = abs((comp_number - player_number) % 5)
+    abs_diff = abs(comp_number - player_number) % 5
     # use if/elif/else to determine winner, print winner message
     if 0 < abs_diff < 3:
         #higher number wins max(1, 2)
