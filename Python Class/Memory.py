@@ -1,5 +1,5 @@
 # implementation of card game - Memory
-#to see a live demo go to: http://www.codeskulptor.org/#user40_SAeUoANRPyLZd10.py
+
 import simplegui
 import random
 
@@ -32,7 +32,6 @@ def new_game():
     init()
     label.set_text("Turns = " + str(s.turns))
 
-
 def incr_click():
     if s.click_count == 0:
         s.click_count += 1
@@ -64,48 +63,13 @@ def activate_card(i):
         s.exposed[i] = True
         incr_click()
         s.card1 = i       
-
         
 # define event handlers
 def mouseclick(pos):
-    p = pos[0]   
-    if p < 50 and s.exposed[0] == False:
-        activate_card(0)             
-    elif 50 <= p < 100 and s.exposed[1] == False:
-        activate_card(1)
-    elif 100 <= p < 150 and s.exposed[2] == False:
-        activate_card(2) 
-    elif 150 <= p < 200 and s.exposed[3] == False:
-        activate_card(3)  
-    elif 200 <= p < 250 and s.exposed[4] == False:
-        activate_card(4)  
-    elif 250 <= p < 300 and s.exposed[5] == False:
-        activate_card(5)
-    elif 300 <= p < 350 and s.exposed[6] == False:
-        activate_card(6)
-    elif 350 <= p < 400 and s.exposed[7] == False:
-        activate_card(7)
-    elif 400 <= p < 450 and s.exposed[8] == False:
-        activate_card(8)
-    elif 450 <= p < 500 and s.exposed[9] == False:
-        activate_card(9)
-    elif 500 <= p < 550 and s.exposed[10] == False:
-        activate_card(10)
-    elif 550 <= p < 600 and s.exposed[11] == False:
-        activate_card(11)
-    elif 600 <= p < 650 and s.exposed[12] == False:
-        activate_card(12)
-    elif 650 <= p < 700 and s.exposed[13] == False:
-        activate_card(13)
-    elif 700 <= p < 750 and s.exposed[14] == False:
-        activate_card(14)
-    elif 750 <= p < 800 and s.exposed[15] == False:
-        activate_card(15)
-    else:
-        pass
-   
-    
-                        
+    p = pos[0] // 50
+    if s.exposed[p] == False:
+        activate_card(p)
+                            
 # cards are logically 50x100 pixels in size    
 def draw(canvas):    
     x = 25
@@ -137,5 +101,3 @@ frame.set_draw_handler(draw)
 init()
 new_game()
 frame.start()
-
-# Always remember to review the grading rubric
